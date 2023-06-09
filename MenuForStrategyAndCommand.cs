@@ -10,8 +10,6 @@ namespace age_of_war
             Console.WriteLine("2. Продолжить игру");
             Console.WriteLine("3. Продолжить игру до конца");
             int choice = ChooseChoice1();
-            //if (choice == 1)
-            //    choice = ShowMenuCom2();
             return choice;  //0 - отмена, 2 продолжить, 3 - до конца, 4 - вернуть действие
         }
         public int ShowMenuCom2()

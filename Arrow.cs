@@ -4,7 +4,6 @@ namespace age_of_war
     [Serializable]
     public class Arrow : Unit, ISpecialAbility
     {
-        public SAEnumeration Ability { get; }
         public int power = 5;
         public int range { get; }
         public Arrow()
@@ -14,11 +13,9 @@ namespace age_of_war
             attack = 5;
             defence = 5;
             range = 3;
-            Ability = SAEnumeration.Arrow;
             cost = attack + defence + hp + (power + range) * 2;
             name = "Archer";
         }
-
         public new int Cost
         {
             get { return cost; }

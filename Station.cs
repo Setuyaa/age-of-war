@@ -10,8 +10,6 @@ namespace age_of_war
         public int strategy;
         public Station(ArrayOfArmies ar1, ArrayOfArmies ar2, int j, int str)
         {
-            // undo = false;
-            //Prototype
             strategy = str;
             this.j = j;
             this.ar1 = new ArrayOfArmies(ar1.name, ar1.size);
@@ -29,7 +27,5 @@ namespace age_of_war
                     this.ar2.array[i] = ar2.array[i].DeepCopy() as Army;
             }
         }
-        //everything is fine
-        // public int Strategy { get; set; }
     }
 }

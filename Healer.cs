@@ -6,7 +6,6 @@ namespace age_of_war
     [Serializable]
     public class Healer : Unit, ISpecialAbility
     {
-        public SAEnumeration Ability { get; }
         public int power = 5;
         public int range { get; }
         public Healer()
@@ -16,7 +15,6 @@ namespace age_of_war
             attack = 2;
             range = 3;
             defence = 1;
-            Ability = SAEnumeration.Healer;
             cost = attack + defence + hp + (power + range) * 2;
             name = "Healer";
         }

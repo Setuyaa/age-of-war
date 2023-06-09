@@ -51,21 +51,12 @@ namespace age_of_war
             return t;
         }
         public abstract void PrintResultAttack(int i, Army army1, Army army2, int j);
-        //   {
-        // Console.WriteLine($"{i} ход: {army1.ToString()}: {ToString()} атаковал с силой {Attack}");
-        //    }
         public abstract void PrintResultDefence(int i, Army army2);
-        //{
-        //    if (hp <= 0)
-        //        Console.WriteLine($"{i} ход: {army2.ToString()}: {ToString()} с защитой {Defence} был убит");
-        //    else
-        //        Console.WriteLine($"{i} ход: {army2.ToString()}: {ToString()} с защитой {Defence} остался жив");
-        //}
+
         internal IHealable GetHeal(int power)
         {
             throw new NotImplementedException();
         }
-        public void CheckSA() { }
     }
 }
 

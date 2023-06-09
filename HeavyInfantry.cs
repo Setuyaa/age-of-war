@@ -7,7 +7,7 @@ namespace age_of_war
         public HeavyInfantry()
         {
             attack = 7;
-            defence = 20;
+            defence = 7;
             constHp = 8;
             hp = constHp;
             cost = attack + defence + hp;

@@ -6,7 +6,6 @@ namespace age_of_war
     [Serializable]
     public class Cloner : Unit, ISpecialAbility
     {
-        public SAEnumeration Ability { get; }
         public int power = 40;
         public int range { get; }
         public Cloner()
@@ -16,7 +15,6 @@ namespace age_of_war
             attack = 2;
             defence = 1;
             range = 3;
-            Ability = SAEnumeration.Cloner;
             cost = attack + defence + hp + power/2 + range * 2;
             name = "Cloner";
         }
@@ -51,7 +49,7 @@ namespace age_of_war
         {
             Army army2 = army.array[0];
             Cloner cloner = (Cloner)cloner1;
-            if (/*(i == j)|| */  (hplace == 0)) return;
+            if ((hplace == 0)) return;
             if (army1.army[hplace - 1].IsIClonable()) //hp == -1
             {
                 Proxy? clone = null;
@@ -59,7 +57,7 @@ namespace age_of_war
                 {
                    var unit = army1.army[hplace - 1].Clone();
                    clone = new Proxy((Unit)unit);
-                }// добавляем в армию перед i
+                }
                 if (clone != null)
                 {
                     Console.WriteLine($"{i} ход: {army1.ToString()}: Клонирование {army1.army[hplace - 1].ToString()}");

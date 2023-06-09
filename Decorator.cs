@@ -12,8 +12,6 @@ namespace age_of_war
             Attack = Attack + buffAttack;
             Defence = Defence + buffDefence;
         }
-
-
         public override void PrintResultAttack(int i, Army army1, Army army2, int j)
         {
             Console.WriteLine($"{i} ход: {army1.ToString()}: {army1.army[0].ToString()} атаковал с силой {army1.army[0].Attack}");

@@ -23,16 +23,11 @@ namespace age_of_war
             {
                 ar2.array[j] = station.ar2.array[j].DeepCopy() as Army;
             }
-            //ar1 = station.ar1;
-            //ar2 = station.ar2;
-            //var station2 = station.ForRedo(ar1, ar2);
-            //station = station2;
             return i + 1;
         }
         public int Undo(StacksOfStations stations, ArrayOfArmies ar1, ArrayOfArmies ar2, int i, int str)
         {
             var station = stations.stForUndo.Pop();
-            //var station1 = new Station(ar1, ar2, i, str);
             stations.stForRedo.Push(station);
             var station2 = stations.stForUndo.Pop();
             for (int j = 0; j < ar1.armyNumber; j++)
@@ -43,10 +38,8 @@ namespace age_of_war
             {
                 ar2.array[j] = station2.ar2.array[j].DeepCopy() as Army;
             }
-            //ar1 = station.ar1;
-            //ar2 = station.ar2;
-            //var station2 = station.ForUndo(ar1, ar2);
-            //station = station2;
+            ar1.armyNumber = station2.ar1.armyNumber;
+            ar2.armyNumber = station2.ar2.armyNumber;
             return i - 1;
         }
     }

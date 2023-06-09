@@ -13,6 +13,7 @@ namespace age_of_war
         Invoker invoker;
         StacksOfStations stations;
         public static bool redo = false;
+        public static bool undo = false;
         int c;
         Station station;
         public Game()
@@ -42,6 +43,7 @@ namespace age_of_war
                         cont = CheckCommand(ar1, ar2, str);
                 str = GeneralStep(ar1, ar2);
                 c = 0;
+                undo = false;
             }
             Congrats(ar1, ar2);
         }
@@ -51,7 +53,7 @@ namespace age_of_war
             if (i != 1)
             {
                 c = 2;
-                if (stations.stForRedo.Count == 0 /*!undo*/ ) c = menuForStrategyAndCommand.ShowMenuCom1();  //1 - отмена, 2 продолжить, 3 - до конца, 4 - вернуть действие
+                if (stations.stForRedo.Count == 0 ) c = menuForStrategyAndCommand.ShowMenuCom1();  //1 - отмена, 2 продолжить, 3 - до конца, 4 - вернуть действие
                 else c = menuForStrategyAndCommand.ShowMenuCom2();
             }
             else TryCancelFirstStep();
@@ -60,6 +62,8 @@ namespace age_of_war
             {
                 station = new Station(ar1, ar2, i, str);
                 stations.stForUndo.Push(station);
+                if (c == 2)
+                    stations.ClearRedo();
                 if (c != 4)
                 {
                     if (redo)
@@ -67,6 +71,8 @@ namespace age_of_war
                         stations.ClearRedo();
                         redo = false;
                     }
+                    if (c == 1)
+                        undo = true;
                 }
                 if (c != 2)
                 {
@@ -87,11 +93,17 @@ namespace age_of_war
         public int GeneralStep(ArrayOfArmies ar1, ArrayOfArmies ar2)
         {
             var action = new Action();
-            int str2;
-            if (i == 1)
-                str2 = menuForStrategyAndCommand.ShowMenuStrategy2();
-            else
+            int str2 = 0;
+            if (!undo)
+            {
+                if (i == 1)
+                    str2 = menuForStrategyAndCommand.ShowMenuStrategy2();
+                else
+                    str2 = menuForStrategyAndCommand.ShowMenuStrategy1(); //0 - продолжить, 1 - 1, 2 - 3, 3 - стенка
+            }
+            else {
                 str2 = menuForStrategyAndCommand.ShowMenuStrategy1(); //0 - продолжить, 1 - 1, 2 - 3, 3 - стенка
+            }
             if (str2 != 0)
                 str = str2;
             if (str == 1)

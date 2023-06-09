@@ -17,33 +17,6 @@
             name = "GulyayGorod";
     }
 
-        //public int Defence
-        //{
-        //    get { return gulyayGorod.GetDefence(); }
-        //    set { defence = gulyayGorod.GetDefence(); }
-        //}
-
-        //public int Hp
-        //{
-        //    get { return gulyayGorod.GetHealth(); }
-        //}
-
-        //public int Attack
-        //{
-        //    get { return gulyayGorod.GetStrength(); }
-        //}
-
-        //public int ConstHp
-        //{
-        //    get { return gulyayGorod.GetCurrentHealth(); }
-        //    set { ConstHp = ConstHp - value; }
-        //}
-
-        //public new int Cost
-        //{
-        //    get { return gulyayGorod.GetCost(); }
-        //}
-
         public new bool IsStillAlive()
         {
             return gulyayGorod.IsDead;

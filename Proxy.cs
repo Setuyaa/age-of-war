@@ -59,10 +59,12 @@ namespace age_of_war
         public override void PrintResultAttack(int i, Army army1, Army army2, int j)
         {
             unit.PrintResultAttack(i, army1, army2, j);
+            //log
         }
         public override void PrintResultDefence(int i, Army army2)
         {
             unit.PrintResultDefence(i, army2);
+            //log
         }
         public new bool IsStillAlive()
         {
